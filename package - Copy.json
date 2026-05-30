@@ -1,0 +1,12 @@
+{
+  "name": "theater-api-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "backend:start": "npm --prefix backend start",
+    "backend:dev": "npm --prefix backend run dev",
+    "frontend:start": "npm --prefix frontend start",
+    "frontend:android": "npm --prefix frontend run android",
+    "frontend:ios": "npm --prefix frontend run ios",
+    "frontend:web": "npm --prefix frontend run web"
+  }
+}
