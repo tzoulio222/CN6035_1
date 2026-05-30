@@ -1,84 +1,75 @@
 # StageLine - Theatre Booking System
 
-StageLine is a comprehensive theatre booking platform featuring a robust Node.js backend and a modern React Native mobile application.
+Το StageLine είναι μια ολοκληρωμένη πλατφόρμα κρατήσεων για θεατρικές παραστάσεις, η οποία αποτελείται από μια modern **React Native** εφαρμογή κινητού και ένα ισχυρό **Node.js** REST API.
 
-## 🚀 Features
+## 🚀 Λειτουργίες (Features)
 
-- **User Authentication:** Secure login and registration using JWT.
-- **Theatre Exploration:** Browse available theatres and their show schedules.
-- **Seat Reservation:** Real-time seat selection and booking management.
-- **Responsive UI:** A polished mobile experience built with Expo and NativeWind.
-- **Database Fallback:** Automatic in-memory fallback if MySQL is not available.
+- **Ταυτοποίηση Χρηστών (Authentication):** Ασφαλής εγγραφή και σύνδεση με χρήση **JWT (Access & Refresh Tokens)**. Τα tokens αποθηκεύονται με ασφάλεια στη συσκευή (Secure Storage).
+- **Αναζήτηση Παραστάσεων (Smart Search):** Δυναμική αναζήτηση παραστάσεων με βάση τον **τίτλο**, το **όνομα του θεάτρου** ή την **τοποθεσία**.
+- **Διαχείριση Κρατήσεων (Booking Management):** 
+    - Επιλογή θέσης μέσω διαδραστικού Seat Map.
+    - Δημιουργία νέας κράτησης.
+    - **Τροποποίηση (Modify Slot):** Αλλαγή θέσης ή ώρας σε μελλοντικές κρατήσεις.
+    - **Ακύρωση (Cancellation):** Διαγραφή κράτησης και απελευθέρωση θέσης.
+- **Ιστορικό Χρήστη:** Προβολή όλων των κρατήσεων και της συνολικής αξίας του "χαρτοφυλακίου" εισιτηρίων στο προφίλ.
+- **Database Auto-Bootstrap:** Αυτόματη δημιουργία πινάκων και εισαγωγή δοκιμαστικών δεδομένων (seeding) κατά την πρώτη εκκίνηση.
 
-## 📁 Project Structure
+## 🛠️ Τεχνολογίες που χρησιμοποιήθηκαν
 
-- `backend/`: Express.js API with MySQL integration.
-- `frontend/`: Expo (React Native) mobile application.
+### Frontend (Mobile App)
+- **React Native & Expo:** Cross-platform ανάπτυξη για iOS και Android.
+- **NativeWind (Tailwind CSS):** Σχεδιασμός UI με modern dark mode αισθητική.
+- **React Query (TanStack):** Αποδοτική διαχείριση data fetching και caching.
+- **Zustand:** Ελαφρύ state management για τη συνεδρία του χρήστη.
+- **Lucide React Native:** Σύστημα εικονιδίων.
 
-## 🛠️ Installation & Setup
+### Backend (REST API)
+- **Node.js & Express:** Ανάπτυξη του server και των API endpoints.
+- **MariaDB / MySQL:** Σχεσιακή βάση δεδομένων για την αποθήκευση χρηστών, παραστάσεων και κρατήσεων.
+- **Bcrypt.js:** Κρυπτογράφηση κωδικών πρόσβασης (hashing).
+- **JSON Web Tokens (JWT):** Ασφάλεια και διαχείριση συνεδριών.
 
-### Prerequisites
+---
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [Expo Go](https://expo.dev/client) app on your mobile device (to test the frontend)
+## 📁 Δομή Project
 
-### 1. Clone the Repository
+- `backend/`: Ο κώδικας του API και οι ρυθμίσεις της βάσης δεδομένων.
+- `frontend/`: Η εφαρμογή React Native (Expo).
 
+---
+
+## ⚙️ Εγκατάσταση & Ρύθμιση
+
+### 1. Κλωνοποίηση του Repository
 ```bash
 git clone https://github.com/tzoulio222/CN6035_1
 cd RestAPI
 ```
 
-### 2. Backend Configuration
-
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure environment variables:
-   Create a `.env` file in the `backend/` directory:
+### 2. Ρύθμιση Backend
+1. Μεταβείτε στο φάκελο: `cd backend`
+2. Εγκαταστήστε τις βιβλιοθήκες: `npm install`
+3. Δημιουργήστε ένα αρχείο `.env` με τις εξής μεταβλητές:
    ```env
    PORT=3000
    DB_HOST=localhost
-   DB_USER=your_user
-   DB_PASSWORD=your_password
+   DB_USER=το_username_σας
+   DB_PASSWORD=ο_κωδικός_σας
    DB_NAME=theatre_db
-   JWT_SECRET=your_jwt_secret
+   JWT_SECRET=ένα_τυχαίο_κλειδί
    ```
-4. Start the server:
-   ```bash
-   npm run dev
-   ```
+4. Εκκινήστε τον server: `npm run dev`
 
-### 3. Frontend Configuration
+### 3. Ρύθμιση Frontend
+1. Μεταβείτε στο φάκελο: `cd frontend`
+2. Εγκαταστήστε τις βιβλιοθήκες: `npm install`
+3. Εκκινήστε την Expo: `npx expo start`
 
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Expo development server:
-   ```bash
-   npx expo start
-   ```
-4. Scan the QR code with the Expo Go app to view the application.
+---
 
-## 📖 Functionality Description
+## 🔗 Repository Link
+Μπορείτε να βρείτε τον κώδικα εδώ: [https://github.com/tzoulio222/CN6035_1](https://github.com/tzoulio222/CN6035_1)
 
-### Backend
-The backend is built with **Express.js** and provides a RESTful API for managing users, theatres, shows, and reservations. It uses **MySQL** for data persistence but includes a robust in-memory data store as a fallback for demonstration purposes. Security is handled via **bcryptjs** for password hashing and **JSON Web Tokens (JWT)** for session management.
-
-### Frontend
-The mobile client is developed using **Expo** and **React Native**. It utilizes **Zustand** for state management and **React Query** for efficient data fetching and caching. The styling is powered by **NativeWind (Tailwind CSS)**, providing a clean and modern user interface across both iOS and Android.
-
-## 📄 License
-
-This project is licensed under the ISC License.
+## 👤 Demo Λογαριασμός
+- **Email:** `demo@stage.local`
+- **Password:** `Demo123!`
